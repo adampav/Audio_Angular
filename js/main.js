@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 
-var apiKey = 'YOUR_KEY',
+var apiKey = 'MDI0MTA5NTMyMDE0NjIwMzc3NTYxYjUzOQ000',
     nprUrl = 'http://api.npr.org/query?id=61&fields=relatedLink,title,byline,text,audio,image,pullQuote,all&output=JSON';
 
 app.controller('MyController', ['$scope', function ($scope) {
@@ -42,7 +42,7 @@ app.controller('PlayerController',['$scope', '$http', function($scope, $http) {
 
     $http({
         method: 'JSONP',
-        url: nprUrl + '&apiKey=' + '&callback=JSON_CALLBACK'
+        url: nprUrl + '&apiKey=' + apiKey + '&callback=JSON_CALLBACK'
     }).success(function (data, status) {
         $scope.programs = data.list.story;
     }).error(function (data, status) {
